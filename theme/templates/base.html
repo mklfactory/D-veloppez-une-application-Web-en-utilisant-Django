@@ -1,15 +1,20 @@
-{% load static tailwind_tags %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Mon site Django{% endblock %}</title>
-  {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}LITRevu{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <main class="min-h-screen flex items-center justify-center p-8">
-    {% block content %}{% endblock %}
-  </main>
+<body class="bg-gray-100 min-h-screen">
+    <nav class="bg-white shadow p-4">
+        <a href="{% url 'home' %}" class="font-bold text-xl text-blue-600">LITRevu</a>
+        <a href="{% url 'feed' %}" class="ml-4 text-gray-600 hover:text-blue-600">Feed</a>
+    </nav>
+
+    <main class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </main>
 </body>
 </html>
