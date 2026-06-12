@@ -19,12 +19,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'theme',
-    'litrevu',  # ✅ ton app ajoutée
+    'litrevu',  # app ajoutée
 ]
 
 TAILWIND_APP_NAME = 'theme'
 
-INTERNAL_IPS = [          # ✅ requis pour Tailwind en dev
+INTERNAL_IPS = [          # requis pour Tailwind en dev
     '127.0.0.1',
 ]
 
@@ -43,7 +43,7 @@ ROOT_URLCONF = 'LITRevu_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'theme' / 'templates'],  # ✅ chemin corrigé
+        'DIRS': [BASE_DIR / 'theme' / 'templates'],  # chemin corrigé
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,7 +71,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-LANGUAGE_CODE = 'fr-fr'   # ✅ français si tu veux
+LANGUAGE_CODE = 'fr-fr'   # français 
 TIME_ZONE = 'Europe/Paris'
 
 USE_I18N = True
@@ -79,7 +79,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # ✅ évite un warning
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # évite un warning
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'feed'
