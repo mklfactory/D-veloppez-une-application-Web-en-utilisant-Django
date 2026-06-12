@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
 </head>
 <body class="bg-gray-100 min-h-screen">
-    <nav class="bg-white shadow p-4">
-        <a href="{% url 'home' %}" class="font-bold text-xl text-blue-600">LITRevu</a>
-        <a href="{% url 'feed' %}" class="ml-4 text-gray-600 hover:text-blue-600">Feed</a>
-    </nav>
+    <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <a href="{% url 'home' %}" class="font-bold text-xl text-blue-600">LITRevu</a>
+    <div>
+        {% if user.is_authenticated %}
+            <span class="text-gray-600 mr-4">👤 {{ user.username }}</span>
+            <a href="{% url 'feed' %}" class="text-gray-600 hover:text-blue-600 mr-4">Feed</a>
+            <a href="{% url 'logout' %}" class="text-red-500 hover:underline">Déconnexion</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="text-blue-600 hover:underline mr-4">Connexion</a>
+            <a href="{% url 'register' %}" class="text-green-600 hover:underline">Inscription</a>
+        {% endif %}
+    </div>
+</nav>
 
     <main class="container mx-auto p-6">
         {% block content %}{% endblock %}
